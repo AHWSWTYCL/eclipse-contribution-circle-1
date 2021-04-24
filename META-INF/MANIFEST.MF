@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-Name: Junit Plug-in
+Bundle-SymbolicName: org.eclipse.contribution.junit; singleton=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: contribjunit.jar
+Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime.compatibility,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.views,
+ org.eclipse.jface.text,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.editors,
+ org.eclipse.core.resources,
+ org.eclipse.ui,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
+ org.eclipse.debug.core,
+ org.junit
+Eclipse-AutoStart: true
+Plugin-Class: org.eclipse.contribution.junit.JUnitPlugin
+Provide-Package: org.eclipse.contribution.junit

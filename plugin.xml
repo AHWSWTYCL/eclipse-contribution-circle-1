@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="org.eclipse.contribution.junit"
+   name="Junit Plug-in"
+   version="1.0.0"
+   provider-name=""
+   class="org.eclipse.contribution.junit.JUnitPlugin">
+
+   <runtime>
+   	  <library name="contribjunit.jar">
+   	  	<export name="*"/>
+   	  </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.runtime.compatibility"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.junit"/>
+   </requires>
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution
+			id="org.eclipse.contribution.junit.runtest"
+			objectClass="org.eclipse.jdt.core.IType">
+			<action
+				id="org.eclipse.contribution.junit.runtest.action"
+				label="Run Test"
+				enablesFor="1"
+				class="org.eclipse.contribution.junit.RunTestAction">
+			</action>
+		</objectContribution>
+	</extension>
+	
+	<extension-point
+		id="listeners" name="Test Listeners"/>
+		
+</plugin>
