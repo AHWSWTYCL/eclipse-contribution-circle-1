@@ -6,6 +6,8 @@
  */
 package org.eclipse.contribution.junit;
 
+import org.eclipse.jdt.core.IJavaProject;
+
 /**
  * @author Cocoa
  *
@@ -14,9 +16,9 @@ package org.eclipse.contribution.junit;
  */
 public interface ITestRunListener {
 	
-	void testsStarted(int testCount);
-	void testsFinished();
-	void testStarted(String klass, String method);
-	void testFailed(String klass, String method, String trace);
+	void testsStarted(IJavaProject project, int testCount);
+	void testsFinished(IJavaProject project);
+	void testStarted(IJavaProject project, String klass, String method);
+	void testFailed(IJavaProject project,String klass, String method, String trace);
 
 }

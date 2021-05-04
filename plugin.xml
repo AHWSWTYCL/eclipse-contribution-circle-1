@@ -25,8 +25,13 @@
       <import plugin="org.eclipse.jdt.launching"/>
       <import plugin="org.eclipse.debug.core"/>
       <import plugin="org.junit"/>
+      <import plugin="org.eclipse.swt"/>
    </requires>
 
+	
+	<extension-point
+		id="listeners" name="Test Listeners"/>
+		
 	<extension point="org.eclipse.ui.popupMenus">
 		<objectContribution
 			id="org.eclipse.contribution.junit.runtest"
@@ -40,7 +45,27 @@
 		</objectContribution>
 	</extension>
 	
-	<extension-point
-		id="listeners" name="Test Listeners"/>
+	<extension
+   		point="org.eclipse.ui.views">
+   		<view
+   			id="org.eclipse.contribution.junit.resultView"
+   			name="Contributed Result View"
+   			class="org.eclipse.contribution.junit.ResultView">
+   		</view>
+   	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution
+			id="org.eclipse.contribution.junit.popupMenu"
+			targetID="org.eclipse.contribution.junit.resultView">
+			<action
+				id="org.eclipse.contribution.junit.popupMenu.item"
+				label="Contributed Item"
+				menubarPath="additions"
+				class="">
+			</action>
+		</viewerContribution>
+	</extension>
+
 		
 </plugin>

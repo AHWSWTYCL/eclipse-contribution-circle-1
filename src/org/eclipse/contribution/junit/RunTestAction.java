@@ -81,15 +81,15 @@ public class RunTestAction implements IObjectActionDelegate {
 			
 		IType type = (IType) structured.getFirstElement();
 		
-		ITestRunListener listener = new Listener();
-		JUnitPlugin.getPlugin().addTestListener(listener);
+//		ITestRunListener listener = new Listener();
+//		JUnitPlugin.getPlugin().addTestListener(listener);
 		try {
 			JUnitPlugin.getPlugin().run(type);
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		JUnitPlugin.getPlugin().removeTestListener(listener);
+//		JUnitPlugin.getPlugin().removeTestListener(listener);
 	}
 
 	/* (non-Javadoc)
