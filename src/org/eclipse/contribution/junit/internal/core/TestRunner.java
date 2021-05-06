@@ -55,6 +55,7 @@ public class TestRunner {
 	}
 
 	/**
+	 * @param project2
 	 * @param types
 	 */
 	public void run(IType[] classes) throws CoreException {

@@ -44,7 +44,7 @@ public class SocketTestRunner implements TestListener {
 				suite.addTestSuite(Class.forName(args[i]));
 			}
 			
-			writer.println("Starting tests " + suite.countTestCases());
+			writer.println("starting tests " + suite.countTestCases());
 			TestResult result = new TestResult();
 			result.addListener(this);
 			suite.run(result);

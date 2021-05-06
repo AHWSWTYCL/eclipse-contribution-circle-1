@@ -7,6 +7,7 @@
 package org.eclipse.contribution.junit;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -31,7 +32,7 @@ public class RunTestAction implements IObjectActionDelegate {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testsStarted(int)
 		 */
-		public void testsStarted(int testCount) {
+		public void testsStarted(IJavaProject project, int testCount) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -39,7 +40,7 @@ public class RunTestAction implements IObjectActionDelegate {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testsFinished()
 		 */
-		public void testsFinished() {
+		public void testsFinished(IJavaProject project) {
 			// TODO Auto-generated method stub
 			String message = passed ? "Pass" : "Fail";
 			MessageDialog.openInformation(null, "Test Results", message);
@@ -48,7 +49,7 @@ public class RunTestAction implements IObjectActionDelegate {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testStarted(java.lang.String, java.lang.String)
 		 */
-		public void testStarted(String klass, String method) {
+		public void testStarted(IJavaProject project, String klass, String method) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -56,7 +57,7 @@ public class RunTestAction implements IObjectActionDelegate {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testFinished(java.lang.String, java.lang.String, java.lang.String)
 		 */
-		public void testFailed(String klass, String method, String trace) {
+		public void testFailed(IJavaProject project, String klass, String method, String trace) {
 			// TODO Auto-generated method stub
 			passed = false;
 		}

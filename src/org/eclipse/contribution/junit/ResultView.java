@@ -6,6 +6,7 @@
  */
 package org.eclipse.contribution.junit;
 
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -58,7 +59,7 @@ public class ResultView extends ViewPart {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testsStarted(int)
 		 */
-		public void testsStarted(int testCount) {
+		public void testsStarted(IJavaProject project, int testCount) {
 			// TODO Auto-generated method stub
 			success = true;
 		}
@@ -66,7 +67,7 @@ public class ResultView extends ViewPart {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testsFinished()
 		 */
-		public void testsFinished() {
+		public void testsFinished(IJavaProject project) {
 			// TODO Auto-generated method stub
 			if (success) {
 				Display display = control.getDisplay();
@@ -78,7 +79,7 @@ public class ResultView extends ViewPart {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testStarted(java.lang.String, java.lang.String)
 		 */
-		public void testStarted(String klass, String method) {
+		public void testStarted(IJavaProject project, String klass, String method) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -86,7 +87,7 @@ public class ResultView extends ViewPart {
 		/* (non-Javadoc)
 		 * @see org.eclipse.contribution.junit.ITestRunListener#testFailed(java.lang.String, java.lang.String, java.lang.String)
 		 */
-		public void testFailed(String klass, String method, String trace) {
+		public void testFailed(IJavaProject project, String klass, String method, String trace) {
 			// TODO Auto-generated method stub
 			Display display = control.getDisplay();
 			Color red = display.getSystemColor(SWT.COLOR_RED);

@@ -49,7 +49,7 @@ public class JUnitPlugin extends Plugin {
 	}
 	
 	public void run(IType type) throws CoreException {
-		new TestRunner().run(new IType[] {type}, type.getJavaProject());
+		run(new IType[] {type}, type.getJavaProject());
 	}
 	
 	public void run(IType[] classes, IJavaProject project) throws CoreException {
@@ -81,7 +81,7 @@ public class JUnitPlugin extends Plugin {
 	/**
 	 * @param count
 	 */
-	public void fireTestsStarted(IJavaProject project, final int count) {
+	public void fireTestsStarted(final IJavaProject project, final int count) {
 		// TODO Auto-generated method stub
 		for (final Iterator all = getListeners().iterator(); all.hasNext();) {
 			final ITestRunListener each = (ITestRunListener) all.next();
@@ -94,7 +94,7 @@ public class JUnitPlugin extends Plugin {
 
 				public void run() throws Exception {
 					// TODO Auto-generated method stub
-					each.testsStarted(count);
+					each.testsStarted(project, count);
 				}
 				
 			};
@@ -146,7 +146,7 @@ public class JUnitPlugin extends Plugin {
 	/**
 	 * 
 	 */
-	public void fireTestsFinished(IJavaProject project) {
+	public void fireTestsFinished(final IJavaProject project) {
 		// TODO Auto-generated method stub
 		for (final Iterator all = getListeners().iterator(); all.hasNext();) {
 			final ITestRunListener each = (ITestRunListener) all.next();
@@ -160,7 +160,7 @@ public class JUnitPlugin extends Plugin {
 
 				public void run() throws Exception {
 					// TODO Auto-generated method stub
-					each.testsFinished();
+					each.testsFinished(project);
 				}
 				
 			};
@@ -172,7 +172,7 @@ public class JUnitPlugin extends Plugin {
 	 * @param klass
 	 * @param method
 	 */
-	public void fireTestStarted(IJavaProject project, final String klass, final String method) {
+	public void fireTestStarted(final IJavaProject project, final String klass, final String method) {
 		// TODO Auto-generated method stub
 		for (final Iterator all = getListeners().iterator(); all.hasNext();) {
 			final ITestRunListener each = (ITestRunListener) all.next();
@@ -185,7 +185,7 @@ public class JUnitPlugin extends Plugin {
 
 				public void run() throws Exception {
 					// TODO Auto-generated method stub
-					each.testStarted(klass, method);
+					each.testStarted(project, klass, method);
 				}
 				
 			};
@@ -199,7 +199,7 @@ public class JUnitPlugin extends Plugin {
 	 * @param method
 	 * @param trace
 	 */
-	public void fireTestFailed(IJavaProject project, final String klass, final String method, final String trace) {
+	public void fireTestFailed(final IJavaProject project, final String klass, final String method, final String trace) {
 		// TODO Auto-generated method stub
 		for (final Iterator all = getListeners().iterator(); all.hasNext();) {
 			final ITestRunListener each = (ITestRunListener) all.next();
@@ -213,7 +213,7 @@ public class JUnitPlugin extends Plugin {
 
 				public void run() throws Exception {
 					// TODO Auto-generated method stub
-					each.testFailed(klass, method, trace);
+					each.testFailed(project, klass, method, trace);
 				}
 				
 			};

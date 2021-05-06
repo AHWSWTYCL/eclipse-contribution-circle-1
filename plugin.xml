@@ -67,5 +67,19 @@
 		</viewerContribution>
 	</extension>
 
+    <extension 
+    	point="org.eclipse.core.resources.markers"
+    	id="failure"
+    	name="Test Failure">
+    	<super type="org.eclipse.jdt.core.problem"/>
+    	<persistent value="true"/>
+    </extension>
+    
+    <extension point="org.eclipse.ui.markerResolution">
+    	<markerResoultionGenerator
+    		markerType="org.eclipse.contribution.junit.failure"
+    		class="org.eclipse.contribution.junit.RerunMarkerResolutionGenerator">
+    	</markerResoultionGenerator>
+    </extension>
 		
 </plugin>
